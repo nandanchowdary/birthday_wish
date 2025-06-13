@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Malya Putta!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bgMusic" autoplay loop style="display:none;">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        
+        <div class="birthday-card">
+            <div class="decorative-element top-left"></div>
+            <div class="decorative-element top-right"></div>
+            <div class="decorative-element bottom-left"></div>
+            <div class="decorative-element bottom-right"></div>
+            
+            <h1 class="birthday-text">Happy Birthday</h1>
+            <h2 class="name">Malya</h2>
+            
+            <!-- Profile Image Section -->
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <img src="./Malya.png" alt="Malya's Photo" width=200px height:600px  class="profile-image">
+                    <div class="profile-glow"></div>
+                </div>
+            </div>
+
+            <div class="message">
+                <p class="quote">"Some friendships are instant, and some take time to grow. Ours was instant! 💫"</p>
+                <p class="wish">Hey Malya! 🎂 Today, June 13th, 2025, is all about celebrating the wonderful person you are! Even though we haven't known each other for long, our friendship feels like it's been forever. May your day be as special as the connection we share!</p>
+                <p class="wish">From our first conversation, I knew we'd be great friends. Your warmth, kindness, and beautiful spirit have made our friendship so meaningful. Here's to many more memories together! 🎈</p>
+                <p class="wish">Wishing my dear friend a birthday filled with joy and laughter! Happy Birthday! 🎁✨</p>
+            </div>
+
+            <!-- Image Gallery Section -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">Our Short (i.e,1 week)Journey</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="./pic-1.png" alt="Memory 1" class="gallery-image">
+                        <div class="gallery-caption">First Meet</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./pic-2.png" alt="Memory 2" class="gallery-image">
+                        <div class="gallery-caption">Special Moments</div>
+                    </div>
+                   
+                    </div>
+                </div>
+                <p class="memory-message">Looking at these memories, I'm grateful for the beautiful friendship we've built in such a short time. Your presence has brought so much joy to my last day of the second Year. Even though we're new friends, our connection feels so natural and special. 💝</p>
+            </div>
+            
+            <div class="floating-elements">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+                <div class="floating-element element-3"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Function to play audio
+        function playAudio() {
+            const audio = document.getElementById('bgMusic');
+            audio.volume = 0.2;
+            
+            // Try to play immediately
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay started successfully
+                }).catch(error => {
+                    // If autoplay fails, try these methods
+                    audio.muted = true;
+                    audio.play().then(() => {
+                        audio.muted = false;
+                    });
+                });
+            }
+        }
+
+        // Try multiple events to ensure playback
+        document.addEventListener('DOMContentLoaded', playAudio);
+        window.addEventListener('load', playAudio);
+        window.addEventListener('pageshow', playAudio);
+        
+        // Also try to play when the page becomes visible
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                playAudio();
+            }
+        });
+
+        // Try to play on any user interaction
+        document.addEventListener('click', playAudio, { once: true });
+        document.addEventListener('touchstart', playAudio, { once: true });
+        document.addEventListener('keydown', playAudio, { once: true });
+    </script>
+</body>
+</html> 
